@@ -1,4 +1,4 @@
-![](https://raw.githubusercontent.com/marcusolsson/gophers/master/gopherdata-gopher.png | width=100)
+<img src="https://raw.githubusercontent.com/marcusolsson/gophers/master/gopherdata-gopher.png" width="150">
 
 # GoFinance
 
