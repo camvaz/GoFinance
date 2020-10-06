@@ -12,7 +12,7 @@ type DuracionProps struct {
 }
 
 // Duracion - Valuacion de bonos
-func Duracion(props DuracionProps) float64 {
+func Duracion(props *DuracionProps) float64 {
 	tasaCupon := props.Cup / 100
 	tasaRendimiento := props.K / 100
 	firstOperand := (1 + tasaRendimiento) / tasaRendimiento

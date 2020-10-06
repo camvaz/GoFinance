@@ -6,7 +6,7 @@ GoFinance un proyecto de software libre cuyo objetivo es implementar herramienta
 
 ## Introducción
 
-**Go** es necesario. Para instalarlo visite [https://golang.org/doc/install]. Despues de instalarlo, coloque el proyecto dentro de `$GOPATH/src` ya sea clonando el proyecto por medio de **git** o descargandolo como zip.
+**Go** es necesario. Para instalarlo visite https://golang.org/doc/install. Despues de instalarlo, coloque el proyecto dentro de `$GOPATH/src` ya sea clonando el proyecto por medio de **git** o descargandolo como zip.
 
 Una vez instalado es necesario correr `go get` para instalar los módulos externos.
 

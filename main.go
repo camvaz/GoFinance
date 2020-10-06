@@ -63,7 +63,7 @@ func main() {
 	results := make([]float64, 0)
 
 	for _, value := range duracionSlice {
-		results = append(results, math.Duracion(value))
+		results = append(results, math.Duracion(&value))
 	}
 
 	fmt.Print("Resultados:\n\n")
