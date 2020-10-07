@@ -2,17 +2,14 @@ package main
 
 import (
 	"GoFinance/math"
+	"GoFinance/utils"
 	"fmt"
+	"errors"
 	"strconv"
-	"time"
-
-	"github.com/360EntSecGroup-Skylar/excelize"
 )
 
 func main() {
-	f, err := excelize.OpenFile("TablaDuracion.xlsx")
-	fmt.Print("Iniciando lectura de archivo...\n\n")
-	time.Sleep(2 * time.Second)
+	f, err :=  utils.ReadExcel("TablaDuracion.xlsx")
 
 	if err != nil {
 		fmt.Println(err)
@@ -20,6 +17,26 @@ func main() {
 	}
 
 	rows := f.GetRows("Sheet1")
+	duracionSlice, errorSlice := fillValues(rows[:][:])
+
+	if errorSlice != nil {
+		fmt.Println(errorSlice)
+		return;
+	}
+
+	results := make([]float64, 0)
+
+	for _, value := range duracionSlice {
+		results = append(results, math.Duracion(&value))
+	}
+
+	fmt.Print("Resultados:\n\n")
+	for i, value := range results {
+		fmt.Printf("[%d]: %v\n", i, value)
+	}
+}
+
+func fillValues (rows [][]string) ([]math.DuracionProps, error) {
 	tempProps := math.DuracionProps{Cup: 0, T: 0, K: 0}
 	duracionSlice := make([]math.DuracionProps, 0)
 
@@ -36,8 +53,8 @@ func main() {
 			value, err := strconv.ParseFloat(colCell, 64)
 
 			if err != nil {
-				fmt.Printf("Error al leer datos, uno de estos no es un número. Dato con error: %s", colCell)
-				return
+				message := fmt.Sprintf("Error al leer datos, uno de estos no es un número. Dato con error: %s", colCell)
+				return nil, errors.New(message)
 			}
 
 			switch opt := itrCol; opt {
@@ -58,15 +75,5 @@ func main() {
 		fmt.Print(tempProps, "\n\n")
 		duracionSlice = append(duracionSlice, tempProps)
 	}
-
-	results := make([]float64, 0)
-
-	for _, value := range duracionSlice {
-		results = append(results, math.Duracion(&value))
-	}
-
-	fmt.Print("Resultados:\n\n")
-	for i, value := range results {
-		fmt.Printf("[%d]: %v\n", i, value)
-	}
+	return duracionSlice, nil
 }
