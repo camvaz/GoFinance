@@ -1,6 +1,7 @@
 <img src="https://raw.githubusercontent.com/marcusolsson/gophers/master/gopherdata-gopher.png" width="150">
 
 # GoFinance
+[![Go Report Card](https://goreportcard.com/badge/github.com/camvaz/GoFinance)](https://goreportcard.com/report/github.com/camvaz/GoFinance)
 
 GoFinance un proyecto de software libre cuyo objetivo es implementar herramientas para expertos en áreas de índole económica.
 
