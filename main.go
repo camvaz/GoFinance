@@ -3,13 +3,13 @@ package main
 import (
 	"GoFinance/math"
 	"GoFinance/utils"
-	"fmt"
 	"errors"
+	"fmt"
 	"strconv"
 )
 
 func main() {
-	f, err :=  utils.ReadExcel("TablaDuracion.xlsx")
+	f, err := utils.ReadExcel("TablaDuracion.xlsx")
 
 	if err != nil {
 		fmt.Println(err)
@@ -21,7 +21,7 @@ func main() {
 
 	if errorSlice != nil {
 		fmt.Println(errorSlice)
-		return;
+		return
 	}
 
 	results := make([]float64, 0)
@@ -36,7 +36,7 @@ func main() {
 	}
 }
 
-func fillValues (rows [][]string) ([]math.DuracionProps, error) {
+func fillValues(rows [][]string) ([]math.DuracionProps, error) {
 	tempProps := math.DuracionProps{Cup: 0, T: 0, K: 0}
 	duracionSlice := make([]math.DuracionProps, 0)
 
