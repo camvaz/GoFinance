@@ -57,7 +57,6 @@ func main() {
 		fmt.Printf("\nDatos de fila %d: ", itrRow)
 		fmt.Print(tempProps, "\n\n")
 		duracionSlice = append(duracionSlice, tempProps)
-		tempProps = math.DuracionProps{Cup: 0, T: 0, K: 0}
 	}
 
 	results := make([]float64, 0)
